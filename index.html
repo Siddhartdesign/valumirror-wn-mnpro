@@ -1,4 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
 
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
   <!doctype html>
 <html lang="en">
 <head>
@@ -198,528 +208,355 @@ video, canvas { position:absolute; inset:0; width:100%; height:100%; object-fit:
           <div class="icon-label">Flip H</div>
         </button>
         <button id="flip-v-btn" class="icon-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" transform="rotate(90)"><path d="M4 12h16M8 6l-4 6 4 6"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16M6 8l6-4 6 4"/></svg>
           <div class="icon-label">Flip V</div>
         </button>
         <button id="isolate-btn" class="icon-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z"/></svg>
           <div class="icon-label">Isolate</div>
         </button>
         <button id="grid-btn" class="icon-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
           <div class="icon-label">Grid</div>
         </button>
-        <button id="histogram-btn" class="icon-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 20h18M5 20V10m4 10V4m4 16v-9m4 9V6"/></svg>
-          <div class="icon-label">Stats</div>
+        <button id="histogram-btn" class="icon-btn" style="display:none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 20V10M10 20V4M16 20v-6M22 20H2"/></svg>
+          <div class="icon-label">Histogram</div>
         </button>
-        <button id="fullscreen-btn" class="icon-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-          <div class="icon-label">Full</div>
+        <button id="fullscreen-btn" class="icon-btn wide">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          <div class="icon-label">Fullscreen</div>
+        </button>
+        <button id="reset-btn" class="icon-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6M1 20v-6h6"/></svg>
+          <div class="icon-label">Reset</div>
         </button>
     </div>
- 
+
     <div class="controls">
       <div class="tab-and-save-row">
         <div class="mode-tabs">
-          <button id="live-btn">Live</button>
-          <button id="grayscale-btn">B&W</button>
-          <button id="simplify-tab">Tones</button>
+          <button id="mode-massing" class="active">Massing</button>
+          <button id="mode-normal">Black & White</button>
+          <button id="mode-color">Original</button>
         </div>
         <button id="snapshot" class="save-btn-small">SAVE</button>
       </div>
  
-      <div class="range-box" id="simplify-box" style="display:none;">
-        <label>
-          <span>TONES</span>
-          <span id="massing-val">12</span>
-        </label>
-        <input type="range" id="massing" class="range" min="2" max="50" value="12">
-      </div>
- 
-      <div class="range-box" id="isolate-box" style="display:none;">
-        <label>
-          <span>ISOLATE VALUE</span>
-          <span id="val-num">50</span>
-        </label>
-        <input type="range" id="isolate-slider" class="range" min="0" max="100" value="50">
-      </div>
- 
-      <div class="range-box" id="grid-box" style="display:none;">
-        <label>
-          <span>GRID DIVISIONS</span>
-          <span id="grid-val">3</span>
-        </label>
-        <input type="range" id="grid-slider" class="range" min="2" max="10" value="3">
-      </div>
- 
       <div class="range-box">
-        <label>
-          <span>DIMMING</span>
-          <span id="dim-val">50%</span>
-        </label>
-        <input type="range" id="dim" class="range" min="0" max="100" value="50">
+        <label>EXPOSURE <span id="dim-val">100%</span></label>
+        <input id="dim" class="range" type="range" min="5" max="150" value="100">
       </div>
- 
-      <button id="reset-btn" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.1); color:#fff; padding:12px; border-radius:8px; cursor:pointer; font-weight:800; font-size:11px;">RESET ALL</button>
+
+      <div class="range-box" id="isolate-box" style="display:none;">
+        <label>TARGET TONE <span id="val-num">128</span></label>
+        <input id="isolate-slider" class="range" type="range" min="0" max="255" value="128">
+      </div>
+
+      <div class="range-box" id="grid-box" style="display:none;">
+        <label>GRID DIVISIONS <span id="grid-val">4</span></label>
+        <input id="grid-slider" class="range" type="range" min="2" max="12" value="4">
+      </div>
     </div>
   </div>
 </div>
- 
+
 <div id="fullscreen-overlay" class="fullscreen-overlay">
-  <button id="back-btn" class="back-btn">← Back</button>
-  <canvas id="fullscreen-canvas"></canvas>
+  <canvas id="fullscreen-canvas" class="fullscreen-image"></canvas>
+  <button id="back-btn" class="back-btn">Back</button>
 </div>
- 
+
 <div id="menu-modal" class="menu-modal">
   <div class="menu-content">
-    <div class="menu-header">ValueMirror Pro</div>
- 
+    <div class="menu-header">VALUEMIRROR PRO</div>
+    
     <div class="menu-section">
-      <div id="how-to-toggle" class="menu-item">📖 How to Use</div>
-      <div id="how-to-content" style="display:none;">
-        <ol class="how-to-list">
-          <li><strong>Import</strong> a photo or use your device camera</li>
-          <li>Use <strong>Live / B&W / Tones</strong> tabs to switch views</li>
-          <li><strong>Tones</strong> slider reduces image to simplified values</li>
-          <li><strong>Isolate</strong> shows only one specific value range</li>
-          <li><strong>Grid</strong> overlays reference lines for composition</li>
-          <li><strong>Dimming</strong> adjusts overall brightness for tracing</li>
-          <li><strong>Flip H/V</strong> mirrors image horizontally or vertically</li>
-          <li><strong>Compare</strong> tap two areas to see value difference</li>
-          <li><strong>Edges</strong> cycles through edge detection modes</li>
-          <li><strong>Squint</strong> applies blur for simplified viewing</li>
-          <li><strong>Save</strong> exports your current view as PNG</li>
+      <div class="menu-section-title">Help</div>
+      <div class="menu-item" style="cursor:pointer;" id="how-to-toggle">• How to use</div>
+      <div class="how-to-list" id="how-to-content" style="display:none;">
+        <ol style="padding-left:20px; margin:0;">
+          <li>Import an image or use the live camera</li>
+          <li>Apply Massing to see clear value groupings</li>
+          <li>Use the Dimmer to quiet brightness</li>
+          <li>Use Squint to simplify values</li>
+          <li>Use Isolation to highlight selected value ranges</li>
+          <li>Use Compare to see which area is lighter, darker, or the same</li>
+          <li>Save the image</li>
         </ol>
-        <p class="how-to-note">Tip: Use TONES mode to see major value shapes. Use ISOLATE to study specific value ranges.</p>
+        <div class="how-to-note">~ Inspired by the Claude glass (black mirror), a darkened mirror used by painters in Europe during the 18th–19th century to reduce color and compress light, making value relationships easier to see.</div>
       </div>
     </div>
- 
+
     <div class="menu-divider"></div>
- 
+
     <div class="menu-section">
-      <div class="menu-section-title">What's New</div>
+      <div class="menu-section-title">What's New in v2.0</div>
       <div class="whats-new-list">
-        <div class="feature-item">✨ <strong>Compare Tool</strong> - Tap two areas to see value difference</div>
-        <div class="feature-item">🎨 <strong>Edge Detection</strong> - Three modes: Off / Edges Only / Edges + Values</div>
-        <div class="feature-item">👁️ <strong>Squint Mode</strong> - Blur effect for simplified viewing</div>
-        <div class="feature-item">📱 <strong>Improved Mobile UI</strong> - Better touch controls and layout</div>
+        <div class="feature-item">• Added Squint mode with blur-based simplification levels</div>
+        <div class="feature-item">• Added edge detection modes (Edges Only / Edge + Value)</div>
+        <div class="feature-item">• Added value isolation targeting specific tones</div>
+        <div class="feature-item">• Added adjustable grid overlay for reference drawing</div>
+        <div class="feature-item">• Added vertical flip support</div>
+        <div class="feature-item">• Expanded massing controls from 5 tones up to 10 tones</div>
+        <div class="feature-item">• Added fullscreen analysis mode</div>
       </div>
     </div>
- 
+
     <div class="menu-divider"></div>
- 
-    <div class="menu-section">
-      <div id="feedback-btn" class="menu-item">💬 Feedback & Contact</div>
-      <div id="feedback-email" style="display:none; margin-top:10px; font-size:12px; color:#bbb;">
-        <p>Questions, bugs, or feature requests?</p>
-        <p style="color:var(--accent); font-weight:700;">sidartdesign@gmail.com</p>
-      </div>
+
+    <div class="menu-section" style="display:none;">
+      <div class="menu-section-title">Pro</div>
+      <div class="menu-item">• Clean exports (no watermark)</div>
     </div>
- 
-    <button id="close-menu-btn" class="close-menu-btn">Close</button>
+
+    <div class="menu-section">
+      <div class="menu-section-title">About</div>
+      <div class="menu-item">• Version 2.0</div>
+      <div class="menu-item" id="feedback-btn">• Send feedback</div>
+      <div id="feedback-email" style="display:none; margin-top:8px; padding-left:16px; font-size:12px; color:#aaa; font-weight:400;">sidartdesignlab@gmail.com</div>
+    </div>
+
+    <button class="close-menu-btn" onclick="document.getElementById('menu-modal').classList.remove('active')">CLOSE</button>
   </div>
 </div>
  
-<input type="file" id="file-input" accept="image/*" style="display:none;">
+<input id="file-input" type="file" accept="image/*" style="display:none">
  
 <script>
-  const DPR = window.devicePixelRatio || 1;
-  const video = document.getElementById("camera");
-  const frozen = document.getElementById("frozen");
-  const massing = document.getElementById("massing");
-  const overlay = document.getElementById("overlay");
- 
-  const ctxF = frozen.getContext("2d", { willReadFrequently: true });
-  const ctxM = massing.getContext("2d", { willReadFrequently: true });
-  const ctxO = overlay.getContext("2d");
- 
-  let imported = false;
-  let massingTones = 0;
-  let isolateActive = false;
-  let isolatedVal = 50;
-  let gridOn = false;
-  let gridDivisions = 3;
-  let hFlip = false;
-  let vFlip = false;
-  let grayMode = false;
-  let showEdges = false;
-  let showSourceUnder = true;
-  let edgeMode = 0;
-  let squintMode = 0;
-  let compareMode = false;
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("camera"), frozen = document.getElementById("frozen");
+  const massing = document.getElementById("massing"), overlay = document.getElementById("overlay");
+  const ctxF = frozen.getContext("2d"), ctxM = massing.getContext("2d"), ctxO = overlay.getContext("2d");
+
+  let imported = false, massingTones = 3, blurStep = 0, showEdges = false;
+  let isolateActive = false, isolatedVal = 128, showSourceUnder = true;
+  let hFlip = false, vFlip = false;
+  let gridOn = false, gridDivisions = 4;
+  let showColor = false;
+  let edgeMode = 0; // 0=off, 1=edges only, 2=edges+values
+  
+  // Compare tool state
+  let compareActive = false;
   let compareFirstPoint = null;
- 
-  function resize(canvas) {
-    canvas.width = window.innerWidth * DPR;
-    canvas.height = window.innerHeight * DPR;
-    canvas.style.width = window.innerWidth + "px";
-    canvas.style.height = window.innerHeight + "px";
+
+  const SQUINT_LEVELS = [0, 4, 10, 20, 40, 70];
+  // Windows Store high-DPI compliance: Uses devicePixelRatio for proper scaling at 200% and other DPI settings
+  const DPR = window.devicePixelRatio || 1; 
+
+  async function initCam() {
+    try {
+      const s = await navigator.mediaDevices.getUserMedia({video: {facingMode: "environment", width: {ideal: 1920}}});
+      video.srcObject = s;
+    } catch(e) {
+      console.warn("Camera access denied or not available:", e);
+    }
   }
- 
-  resize(frozen);
-  resize(massing);
-  resize(overlay);
- 
-  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-    .then(stream => { video.srcObject = stream; })
-    .catch(() => { });
- 
+
+  function resize() {
+    const w = window.innerWidth, h = window.innerHeight;
+    [frozen, massing, overlay].forEach(c => { c.width = w; c.height = h; });
+  }
+
   function applyTransform() {
-    const scaleX = hFlip ? -1 : 1;
-    const scaleY = vFlip ? -1 : 1;
-    const tx = hFlip ? "100%" : "0";
-    const ty = vFlip ? "100%" : "0";
-    const t = `translate(${tx}, ${ty}) scale(${scaleX}, ${scaleY})`;
-    video.style.transform = t;
-    frozen.style.transform = t;
-    massing.style.transform = t;
+    const sx = hFlip ? -1 : 1;
+    const sy = vFlip ? -1 : 1;
+    const t = `scale(${sx},${sy})`;
+    [video, frozen, massing, overlay].forEach(el => el.style.transform = t);
   }
- 
-  function draw(ctx, source, w, h) {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    const sw = source.videoWidth || source.width;
-    const sh = source.videoHeight || source.height;
-    if (!sw || !sh) return;
-    const scale = Math.min(w / sw, h / sh);
+
+  function draw(ctx, src, w, h) {
+    const sw = src.videoWidth || src.width, sh = src.videoHeight || src.height;
+    if(!sw) return;
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, w, h);
+    const scale = Math.min(w/sw, h/sh);
     const dw = sw * scale;
     const dh = sh * scale;
-    const dx = (w - dw) * 0.5;
-    const dy = (h - dh) * 0.5;
-    ctx.drawImage(source, dx, dy, dw, dh);
+    const dx = (w - dw) / 2;
+    const dy = (h - dh) / 2;
+    ctx.drawImage(src, dx, dy, dw, dh);
   }
- 
-  function gaussianBlur(imageData, radius) {
-    const pixels = imageData.data;
-    const width = imageData.width;
-    const height = imageData.height;
-    const temp = new Uint8ClampedArray(pixels);
-    const kernel = createGaussianKernel(radius);
-    const kernelSize = kernel.length;
-    const halfKernel = Math.floor(kernelSize / 2);
-    
-    for (let y = 0; y < height; y++) {
-      for (let x = 0; x < width; x++) {
-        let r = 0, g = 0, b = 0, a = 0, weightSum = 0;
-        
-        for (let ky = -halfKernel; ky <= halfKernel; ky++) {
-          for (let kx = -halfKernel; kx <= halfKernel; kx++) {
-            const px = Math.min(width - 1, Math.max(0, x + kx));
-            const py = Math.min(height - 1, Math.max(0, y + ky));
-            const idx = (py * width + px) * 4;
-            const weight = kernel[ky + halfKernel] * kernel[kx + halfKernel];
-            
-            r += temp[idx] * weight;
-            g += temp[idx + 1] * weight;
-            b += temp[idx + 2] * weight;
-            a += temp[idx + 3] * weight;
-            weightSum += weight;
-          }
-        }
-        
-        const idx = (y * width + x) * 4;
-        pixels[idx] = r / weightSum;
-        pixels[idx + 1] = g / weightSum;
-        pixels[idx + 2] = b / weightSum;
-        pixels[idx + 3] = a / weightSum;
-      }
+
+  function drawGrid(w,h) {
+    if(!gridOn) return;
+    ctxO.save();
+    ctxO.strokeStyle = 'rgba(255,255,255,0.18)';
+    ctxO.lineWidth = 1;
+    const stepX = w / gridDivisions;
+    const stepY = h / gridDivisions;
+    for(let i=1;i<gridDivisions;i++){
+      ctxO.beginPath(); ctxO.moveTo(i*stepX,0); ctxO.lineTo(i*stepX,h); ctxO.stroke();
+      ctxO.beginPath(); ctxO.moveTo(0,i*stepY); ctxO.lineTo(w,i*stepY); ctxO.stroke();
     }
-    
-    return imageData;
+    ctxO.restore();
   }
- 
-  function createGaussianKernel(radius) {
-    const size = radius * 2 + 1;
-    const kernel = new Array(size);
-    const sigma = radius / 2;
-    let sum = 0;
-    
-    for (let i = 0; i < size; i++) {
-      const x = i - radius;
-      kernel[i] = Math.exp(-(x * x) / (2 * sigma * sigma));
-      sum += kernel[i];
-    }
-    
-    for (let i = 0; i < size; i++) {
-      kernel[i] /= sum;
-    }
-    
-    return kernel;
-  }
- 
-  function sobelEdges(imageData) {
-    const w = imageData.width;
-    const h = imageData.height;
-    const src = imageData.data;
-    const out = new Uint8ClampedArray(src.length);
-    
-    const sobelX = [-1, 0, 1, -2, 0, 2, -1, 0, 1];
-    const sobelY = [-1, -2, -1, 0, 0, 0, 1, 2, 1];
-    
-    for (let y = 1; y < h - 1; y++) {
-      for (let x = 1; x < w - 1; x++) {
-        let gx = 0, gy = 0;
-        
-        for (let ky = -1; ky <= 1; ky++) {
-          for (let kx = -1; kx <= 1; kx++) {
-            const idx = ((y + ky) * w + (x + kx)) * 4;
-            const gray = (src[idx] + src[idx + 1] + src[idx + 2]) / 3;
-            const ki = (ky + 1) * 3 + (kx + 1);
-            gx += gray * sobelX[ki];
-            gy += gray * sobelY[ki];
-          }
-        }
-        
-        const mag = Math.sqrt(gx * gx + gy * gy);
-        const edge = Math.min(255, mag);
-        const idx = (y * w + x) * 4;
-        out[idx] = out[idx + 1] = out[idx + 2] = edge;
-        out[idx + 3] = 255;
-      }
-    }
-    
-    return new ImageData(out, w, h);
-  }
- 
-  function renderFrame() {
-    const w = window.innerWidth * DPR;
-    const h = window.innerHeight * DPR;
+
+  function loop() {
+    const w = window.innerWidth, h = window.innerHeight;
     const source = imported ? frozen : video;
+    const dim = document.getElementById("dim").value;
+
+    const filter = showColor ? `brightness(${dim}%)` : `grayscale(100%) brightness(${dim}%)`;
+    video.style.filter = filter;
+    frozen.style.filter = filter;
     
-    if (massingTones > 0) {
-      draw(ctxM, source, w, h);
-      const imgData = ctxM.getImageData(0, 0, w, h);
-      const d = imgData.data;
-      const step = 255 / massingTones;
-      
-      for (let i = 0; i < d.length; i += 4) {
-        let gray = d[i] * 0.299 + d[i + 1] * 0.587 + d[i + 2] * 0.114;
-        if (squintMode === 1) gray = Math.floor(gray / step) * step;
-        else if (squintMode === 2) gray = Math.round(gray / step) * step;
-        
-        if (isolateActive) {
-          const target = isolatedVal * 2.55;
-          const range = step * 0.5;
-          if (Math.abs(gray - target) > range) {
-            d[i] = d[i + 1] = d[i + 2] = 0;
-            d[i + 3] = 0;
-          } else {
-            d[i] = d[i + 1] = d[i + 2] = gray;
-          }
-        } else {
-          d[i] = d[i + 1] = d[i + 2] = gray;
-        }
-      }
-      
-      if (showEdges) {
-        const edges = sobelEdges(imgData);
-        if (showSourceUnder) {
-          for (let i = 0; i < d.length; i += 4) {
-            const e = edges.data[i];
-            if (e > 50) {
-              d[i] = d[i + 1] = d[i + 2] = 255;
-            }
-          }
-        } else {
-          for (let i = 0; i < d.length; i += 4) {
-            d[i] = d[i + 1] = d[i + 2] = edges.data[i];
-          }
-        }
-      }
-      
-      ctxM.putImageData(imgData, 0, 0);
+    const hideUnder = (!showSourceUnder && (showEdges || isolateActive));
+    video.style.opacity = hideUnder ? 0 : 1;
+    frozen.style.opacity = hideUnder ? 0 : 1;
+
+    ctxO.clearRect(0,0,w,h);
+
+    if (massingTones > 0 || blurStep > 0 || showEdges || isolateActive) {
       massing.style.display = "block";
+      ctxM.filter = blurStep > 0 ? `blur(${SQUINT_LEVELS[blurStep]}px)` : 'none';
+      draw(ctxM, source, w, h);
+      ctxM.filter = 'none';
+
+      // Process the entire canvas for massing effect
+      if (massingTones > 0) {
+        let imgData = ctxM.getImageData(0,0,w,h);
+        let d = imgData.data;
+        let step = 255 / massingTones;
+        for (let i=0; i<d.length; i+=4) {
+          let v = 0.299*d[i] + 0.587*d[i+1] + 0.114*d[i+2];
+          d[i] = d[i+1] = d[i+2] = Math.floor(v/step)*step;
+        }
+        ctxM.putImageData(imgData, 0, 0);
+      }
+
+      if (showEdges || isolateActive) {
+        let imgData = ctxM.getImageData(0,0,w,h);
+        let d = imgData.data;
+        const outData = ctxO.createImageData(w, h);
+        const out = outData.data;
+        for (let i=0; i<d.length; i+=4) {
+          if (showEdges && i % (w*4) < (w-1)*4) {
+             if (Math.abs(d[i] - d[i+4]) > 22) { out[i]=out[i+1]=out[i+2]=255; out[i+3]=220; }
+          }
+          if (isolateActive && Math.abs(d[i] - isolatedVal) < 18) {
+             out[i]=212; out[i+1]=163; out[i+2]=115; out[i+3]=255;
+          }
+        }
+        ctxO.putImageData(outData, 0, 0);
+      }
+      massing.style.filter = `brightness(${dim}%)`;
+      massing.style.opacity = hideUnder ? 0 : 1;
     } else {
       massing.style.display = "none";
     }
-    
-    ctxO.clearRect(0, 0, overlay.width, overlay.height);
-    ctxO.scale(DPR, DPR);
-    
-    const dimVal = parseInt(document.getElementById("dim").value);
-    if (dimVal > 0) {
-      ctxO.fillStyle = `rgba(0,0,0,${dimVal / 100})`;
-      ctxO.fillRect(0, 0, window.innerWidth, window.innerHeight);
-    }
-    
-    if (gridOn) {
-      ctxO.strokeStyle = "rgba(255,255,255,0.3)";
-      ctxO.lineWidth = 1;
-      const cw = window.innerWidth / gridDivisions;
-      const ch = window.innerHeight / gridDivisions;
-      for (let i = 1; i < gridDivisions; i++) {
-        ctxO.beginPath();
-        ctxO.moveTo(i * cw, 0);
-        ctxO.lineTo(i * cw, window.innerHeight);
-        ctxO.stroke();
-        ctxO.beginPath();
-        ctxO.moveTo(0, i * ch);
-        ctxO.lineTo(window.innerWidth, i * ch);
-        ctxO.stroke();
-      }
-    }
-    
-    const histBtn = document.getElementById("histogram-btn");
-    if (histBtn.classList.contains("active")) {
-      const tempCanvas = document.createElement("canvas");
-      tempCanvas.width = w;
-      tempCanvas.height = h;
-      const tempCtx = tempCanvas.getContext("2d");
-      draw(tempCtx, source, w, h);
-      const imgData = tempCtx.getImageData(0, 0, w, h);
-      const d = imgData.data;
-      const histogram = new Array(256).fill(0);
-      
-      for (let i = 0; i < d.length; i += 4) {
-        const gray = Math.round(d[i] * 0.299 + d[i + 1] * 0.587 + d[i + 2] * 0.114);
-        histogram[gray]++;
-      }
-      
-      const maxCount = Math.max(...histogram);
-      const histW = 256;
-      const histH = 100;
-      const startX = window.innerWidth - histW - 20;
-      const startY = window.innerHeight - histH - 20;
-      
-      ctxO.fillStyle = "rgba(0,0,0,0.7)";
-      ctxO.fillRect(startX - 10, startY - 10, histW + 20, histH + 20);
-      
-      ctxO.fillStyle = "rgba(255,255,255,0.8)";
-      for (let i = 0; i < 256; i++) {
-        const barH = (histogram[i] / maxCount) * histH;
-        ctxO.fillRect(startX + i, startY + histH - barH, 1, barH);
-      }
-    }
-    
-    ctxO.setTransform(1, 0, 0, 1, 0, 0);
-    requestAnimationFrame(renderFrame);
+
+    drawGrid(w,h);
+    requestAnimationFrame(loop);
   }
- 
-  renderFrame();
- 
-  document.getElementById("close-menu-btn").onclick = () => {
-    document.getElementById("menu-modal").classList.remove("active");
+
+  document.getElementById("mode-massing").onclick = () => {
+    massingTones = (massingTones < 2) ? 3 : (massingTones >= 10 ? 2 : massingTones + 1);
+    showColor = false;
+    document.getElementById("mode-massing").classList.add("active");
+    document.getElementById("mode-normal").classList.remove("active");
+    document.getElementById("mode-color").classList.remove("active");
+    document.getElementById("mode-massing").textContent = massingTones + " Tones";
   };
- 
-  document.getElementById("live-btn").onclick = () => {
+
+  document.getElementById("mode-normal").onclick = () => {
     massingTones = 0;
-    grayMode = false;
-    document.getElementById("simplify-box").style.display = "none";
-    document.querySelectorAll(".mode-tabs button").forEach(b => b.classList.remove("active"));
-    document.getElementById("live-btn").classList.add("active");
+    showColor = false;
+    document.getElementById("mode-normal").classList.add("active");
+    document.getElementById("mode-massing").classList.remove("active");
+    document.getElementById("mode-color").classList.remove("active");
+    document.getElementById("mode-massing").textContent = "Massing";
   };
- 
-  document.getElementById("grayscale-btn").onclick = () => {
-    massingTones = 256;
-    grayMode = true;
-    document.getElementById("simplify-box").style.display = "none";
-    document.querySelectorAll(".mode-tabs button").forEach(b => b.classList.remove("active"));
-    document.getElementById("grayscale-btn").classList.add("active");
+
+  document.getElementById("mode-color").onclick = () => {
+    massingTones = 0;
+    showColor = true;
+    document.getElementById("mode-color").classList.add("active");
+    document.getElementById("mode-normal").classList.remove("active");
+    document.getElementById("mode-massing").classList.remove("active");
+    document.getElementById("mode-massing").textContent = "Massing";
   };
- 
-  document.getElementById("simplify-tab").onclick = () => {
-    if (massingTones === 0 || grayMode) {
-      massingTones = 12;
-      grayMode = false;
-    }
-    document.getElementById("simplify-box").style.display = "block";
-    document.querySelectorAll(".mode-tabs button").forEach(b => b.classList.remove("active"));
-    document.getElementById("simplify-tab").classList.add("active");
-  };
- 
-  document.getElementById("live-btn").classList.add("active");
- 
-  document.getElementById("massing").oninput = (e) => {
-    massingTones = parseInt(e.target.value);
-    document.getElementById("massing-val").textContent = massingTones;
-  };
- 
+
   document.getElementById("simplify-btn").onclick = () => {
-    squintMode = (squintMode + 1) % 3;
-    const label = document.getElementById("squint-label");
-    const btn = document.getElementById("simplify-btn");
-    
-    if (squintMode === 0) {
-      label.textContent = "SQUINT: OFF";
-      btn.classList.remove("active");
-    } else if (squintMode === 1) {
-      label.textContent = "SQUINT: LOW";
-      btn.classList.add("active");
-    } else {
-      label.textContent = "SQUINT: HIGH";
-      btn.classList.add("active");
-    }
+    blurStep = (blurStep + 1) % SQUINT_LEVELS.length;
+    document.getElementById("squint-label").textContent = blurStep === 0 ? "SQUINT: OFF" : "SQUINT: " + blurStep;
+    document.getElementById("simplify-btn").classList.toggle("active", blurStep > 0);
   };
 
   document.getElementById("compare-btn").onclick = () => {
-    compareMode = !compareMode;
-    document.getElementById("compare-btn").classList.toggle("active", compareMode);
+    compareActive = !compareActive;
+    document.getElementById("compare-btn").classList.toggle("active", compareActive);
+    
     const hint = document.getElementById("compare-hint");
     
-    if (compareMode) {
+    if (compareActive) {
+      hint.textContent = "Tap first area";
       hint.classList.add("show");
-      compareFirstPoint = null;
-      document.querySelectorAll('.compare-dot').forEach(el => el.remove());
-      document.querySelectorAll('.compare-result').forEach(el => el.remove());
     } else {
-      hint.classList.remove("show");
+      // Exit - clear everything
       compareFirstPoint = null;
-      document.querySelectorAll('.compare-dot').forEach(el => el.remove());
-      document.querySelectorAll('.compare-result').forEach(el => el.remove());
+      clearCompareDots();
+      hint.classList.remove("show");
     }
   };
 
+  function clearCompareDots() {
+    document.querySelectorAll('.compare-dot').forEach(el => el.remove());
+    document.querySelectorAll('.compare-result').forEach(el => el.remove());
+  }
+
   function getValueAtPoint(x, y) {
-    const w = window.innerWidth * DPR;
-    const h = window.innerHeight * DPR;
-    const source = imported ? frozen : video;
-    
+    const canvas = massingTones > 0 && massing.style.display !== "none" ? massing : (imported ? frozen : video);
     const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = w;
-    tempCanvas.height = h;
-    const tempCtx = tempCanvas.getContext('2d');
-    draw(tempCtx, source, w, h);
-    
-    const px = Math.floor(x * DPR);
-    const py = Math.floor(y * DPR);
-    const imgData = tempCtx.getImageData(px, py, 1, 1);
-    const d = imgData.data;
-    const gray = Math.round(d[0] * 0.299 + d[1] * 0.587 + d[2] * 0.114);
-    return gray;
+    tempCanvas.width = 1;
+    tempCanvas.height = 1;
+    const ctx = tempCanvas.getContext('2d');
+    ctx.drawImage(canvas, x, y, 1, 1, 0, 0, 1, 1);
+    const pixel = ctx.getImageData(0, 0, 1, 1).data;
+    return 0.299 * pixel[0] + 0.587 * pixel[1] + 0.114 * pixel[2];
   }
 
   function handleCompareClick(e) {
-    if (!compareMode) return;
+    if (!compareActive) return;
     
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const value = getValueAtPoint(x, y);
+    
     const hint = document.getElementById("compare-hint");
     
     if (!compareFirstPoint) {
-      compareFirstPoint = { x, y, value };
+      // Clear previous comparison before starting new one
+      clearCompareDots();
+      
+      // First tap
+      compareFirstPoint = { x, y, value: getValueAtPoint(x, y) };
+      
+      const dot = document.createElement('div');
+      dot.className = 'compare-dot';
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+      document.body.appendChild(dot);
+      
       hint.textContent = "Tap second area";
       
-      const dot = document.createElement('div');
-      dot.className = 'compare-dot';
-      dot.style.left = x + 'px';
-      dot.style.top = y + 'px';
-      document.body.appendChild(dot);
     } else {
-      const dot = document.createElement('div');
-      dot.className = 'compare-dot';
-      dot.style.left = x + 'px';
-      dot.style.top = y + 'px';
-      document.body.appendChild(dot);
-      
-      const diff = value - compareFirstPoint.value;
+      // Second tap - show result
+      const secondValue = getValueAtPoint(x, y);
+      const diff = secondValue - compareFirstPoint.value;
       const diffPercent = Math.round((diff / 255) * 100);
       
+      // Add second dot (keep first dot visible)
+      const dot = document.createElement('div');
+      dot.className = 'compare-dot';
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+      document.body.appendChild(dot);
+      
+      // Show result near second dot
       const result = document.createElement('div');
       result.className = 'compare-result';
-      result.style.left = x + 'px';
-      result.style.top = y + 'px';
+      result.style.left = e.clientX + 'px';
+      result.style.top = e.clientY + 'px';
       
       let primaryText, primaryClass, secondaryText;
       if (Math.abs(diffPercent) <= 2) {
@@ -930,11 +767,16 @@ video, canvas { position:absolute; inset:0; width:100%; height:100%; object-fit:
     link.click();
   };
 
-  window.addEventListener('resize', () => {
-    resize(frozen);
-    resize(massing);
-    resize(overlay);
-  });
+  window.addEventListener("resize", resize);
+  resize(); initCam(); loop();
+  
+  // Initialize massing button text
+  document.getElementById("mode-massing").textContent = massingTones + " Tones";
+});
 </script>
 </body>
+</html>
+    
+  </body>
+  
 </html>
